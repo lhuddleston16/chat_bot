@@ -10,9 +10,9 @@ model = load_model("model.h5")
 import json
 import random
 
-intents = json.loads(open("intents.json").read())
-word_list = pickle.load(open("word_list.pkl", "rb"))
-reponse_class = pickle.load(open("reponse_class.pkl", "rb"))
+intents = json.loads(open("data/intents.json").read())
+word_list = pickle.load(open("artifacts/word_list.pkl", "rb"))
+reponse_class = pickle.load(open("artifacts/reponse_class.pkl", "rb"))
 
 
 def scrub_sentence(sentence):

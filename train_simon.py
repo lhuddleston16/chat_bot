@@ -19,7 +19,7 @@ word_list = []
 reponse_class = []
 documents = []
 ignore_words = ["?", "!"]
-data_file = open("intents.json").read()
+data_file = open("data/intents.json").read()
 intents = json.loads(data_file)
 
 intents["intents"][0]
@@ -49,8 +49,8 @@ print(len(documents), "documents")
 print(len(reponse_class), "reponse_class", reponse_class)
 # word_list = all words, vocabulary
 print(len(word_list), "unique lemmatized word", word_list)
-pickle.dump(word_list, open("word_list.pkl", "wb"))
-pickle.dump(reponse_class, open("reponse_class.pkl", "wb"))
+pickle.dump(word_list, open("artifacts/word_list.pkl", "wb"))
+pickle.dump(reponse_class, open("artifacts/reponse_class.pkl", "wb"))
 
 # Create bag of words data to use for training!
 training = []
@@ -93,5 +93,5 @@ model.compile(loss="categorical_crossentropy", optimizer=sgd, metrics=["accuracy
 hist = model.fit(
     np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1
 )
-model.save("model.h5", hist)
+model.save("artifacts/model.h5", hist)
 print("model created")
