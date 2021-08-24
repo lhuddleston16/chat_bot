@@ -38,4 +38,4 @@ Some might expect that the model is generating the text that is used as a respon
 - Update the intents.json to start creating your own chatbot!
 
 # Citation
-This model was developed with data from https://data-flair.training/blogs
+Model was developed with data from https://data-flair.training/blogs
