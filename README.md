@@ -1,5 +1,5 @@
 # Simon Says
-In this repo we build a chat bot named Simon using a LSTM Neural Network. This is completed by leveraging Python, NLTk and Keras. This is a small example of how large scale and intricate chat bots could be made. This model is based off of a dataset called "intents" which contains the labeled data that is neccessary for trainings.
+In this repo we build a chat bot named Simon using a LSTM Neural Network. This is completed by leveraging Python, NLTK and Keras. This is a small example of how large scale and intricate chat bots could be made. This model is based off of a dataset called "intents" which contains the labeled data that is neccessary for trainings.
 
 # How does it work (non-technical)?
 
