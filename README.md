@@ -18,13 +18,15 @@ The input data that we use to train the model is composed of three separate part
 ### Cleaning your input sentence:
 When you input a sentence, it is first cleaned before entering the model. Meaning all the superfluous grammatical structure of a sentence is wiped out. Words like "helping" become "help" and stop words  such as "and" or "but" are removed since they carry little meaning that indicates what the sentence is about. So the model only gets the bare bones of the sentence. This same cleaning is done on the original "patterns" used in training.
 
-### Model Portion
+### Model
 Some might expect that the model is generating the text that is used as a response, but that is not how this chatbot works. The model in this case classifies which response bucket "Simon" should choose from, given the user's inputted sentence. All the responses from Simon are predetermined by the developer. The model only determines which category your reponse belongs to based on what it has seen before in the "pattern" training data. Diving a bit deeper - the model looks for words that exist both in the inputed sentence and the training "patterns". The highest matched category or "tag" for the given input sentence is deemed the appropriate "tag". Once the tag is determined, Simon chooses a random response from the list of possible reponses in that "tag".
 
 ### Model Parameters
-As stated before the model is a LSTM neural network. It has 3 layers with 88 and 44 neurons in the first two layers with the last layer having neurons equal to the number of intents. We use SGD as our optimizer and use accuracy as our objective function that we optimize against. We run 200 epochs with a batch size of 5.
-
-
+- LSTM neural network.
+- 3 layers with 88 and 44 neurons in the first two layers with the last layer having neurons equal to the number of intents.
+- SGD as optimizer 
+- Accuracy as our objective function that we optimize against.
+- 200 epochs with a batch size of 5.
 
 # Running the App
 - Clone repo
