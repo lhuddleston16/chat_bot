@@ -9,6 +9,11 @@
          "responses": ["See you!", "Have a nice day", "Bye! Come back again soon."],
          "context": [""]
         },
+        {"tag": "office",
+                "patterns": ["Pam Beesly", "Jim Halpert", "Michael Scott", "World's greatest boss", "Dunder Mifflin"],
+                "responses": ["Sometimes Ill start a sentence and I dont even know where its going. I just hope I find it along the way.", "I talk a lot, so I’ve learned to tune myself out.", "Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.", "Im not superstitious, but I am a little stitious.","Today, smoking is going to save lives","I am running away from my responsibilities. And it feels good.","And I knew exactly what to do. But in a much more real sense, I had no idea what to do."],
+                "context": [""]
+               },
         {"tag": "thanks",
          "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
          "responses": ["Happy to help!", "Any time!", "My pleasure"],
