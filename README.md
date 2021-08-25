@@ -23,10 +23,10 @@ Some might expect that the model is generating the text that is used as a respon
 
 ### Model Parameters
 - LSTM neural network.
-- 3 layers with 88 and 44 neurons in the first two layers with the last layer having neurons equal to the number of intents.
+- 3 layers with 100 and 50 neurons in the first two layers with the last layer having neurons equal to the number of intents.
 - SGD as optimizer 
 - Accuracy as our objective function that we optimize against.
-- 200 epochs with a batch size of 5.
+- 220 epochs with a batch size of 5.
 
 # Running the App
 - Clone repo

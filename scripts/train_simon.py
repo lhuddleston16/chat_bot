@@ -1,6 +1,6 @@
 # imports
+from simon_says import scrub_sentence
 import nltk
-
 nltk.download("punkt")
 nltk.download("wordnet")
 from nltk.stem import WordNetLemmatizer
@@ -18,7 +18,6 @@ import random
 word_list = []
 reponse_class = []
 documents = []
-ignore_words = ["?", "!"]
 data_file = open("data/intents.json").read()
 intents = json.loads(data_file)
 
@@ -27,7 +26,7 @@ intents["intents"][0]
 for intent in intents["intents"]:
     for pattern in intent["patterns"]:
         # tokenize each word
-        w = nltk.word_tokenize(pattern)
+        w = scrub_sentence(pattern)
         word_list.extend(w)
         # add documents in the corpus
         documents.append((w, intent["tag"]))
@@ -36,11 +35,6 @@ for intent in intents["intents"]:
             reponse_class.append(intent["tag"])
 
 
-# lemmatize, lower each word and remove duplicates
-word_list = [
-    lemmatizer.lemmatize(w.lower()) for w in word_list if w not in ignore_words
-]
-word_list = sorted(list(set(word_list)))
 # sort reponse_class
 reponse_class = sorted(list(set(reponse_class)))
 # documents = combination between patterns and intents
@@ -78,12 +72,12 @@ train_y = list(training[:, 1])
 print("Training data created")
 
 # Create model - 3 layers.
-# First layer 88 neurons, second layer 44 neurons and 3rd output layer contains number of neurons
+# First layer 128 neurons, second layer 64 neurons and 3rd output layer contains number of neurons
 # equal to number of intents
 model = Sequential()
-model.add(Dense(88, input_shape=(len(train_x[0]),), activation="relu"))
+model.add(Dense(100, input_shape=(len(train_x[0]),), activation="relu"))
 model.add(Dropout(0.5))
-model.add(Dense(44, activation="relu"))
+model.add(Dense(50, activation="relu"))
 model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]), activation="softmax"))
 # Using SGD with Nesterov
@@ -91,7 +85,7 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss="categorical_crossentropy", optimizer=sgd, metrics=["accuracy"])
 # fitting and saving the model
 hist = model.fit(
-    np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1
+    np.array(train_x), np.array(train_y), epochs=220, batch_size=5, verbose=1
 )
 model.save("artifacts/model.h5", hist)
 print("model created")

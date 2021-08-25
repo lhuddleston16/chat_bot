@@ -1,7 +1,10 @@
 import nltk
 from nltk.stem import WordNetLemmatizer
-
+from nltk.stem import PorterStemmer
+from nltk.corpus import stopwords
+nltk.download('stopwords')
 lemmatizer = WordNetLemmatizer()
+ps = PorterStemmer()
 import pickle
 import numpy as np
 from keras.models import load_model
@@ -13,14 +16,16 @@ import random
 intents = json.loads(open("data/intents.json").read())
 word_list = pickle.load(open("artifacts/word_list.pkl", "rb"))
 reponse_class = pickle.load(open("artifacts/reponse_class.pkl", "rb"))
-
+stop_words = set(stopwords.words('english'))
 
 def scrub_sentence(sentence):
-    """Break sentence into stem words."""
+    """Break sentence into stem words and remove stop words."""
     sentence_words = nltk.word_tokenize(sentence)
     sentence_words = [lemmatizer.lemmatize(word.lower()) for word in sentence_words]
+    sentence_words = [ps.stem(w) for w in sentence_words]
+    sentence_words = [w for w in sentence_words if not w.lower() in stop_words]
+    sentence_words = sorted(list(set(sentence_words)))
     return sentence_words
-
 
 
 def bag_of_words(sentence, word_list, show_details=True):
