@@ -31,6 +31,11 @@ Some might expect that the model is generating the text that is used as a respon
 # Running the App
 - Clone repo
 - Set up python virtual environment
+  - python -m venv <location to project>\simon_says\venv
+  - This creates a virtual environment and a folder in your project
+- Activate virtual environment
+  - <location to project>\simon_says\venv\Scripts\activate
+  - This activates your virtual environment
 - Run: pip install -r requirements.txt
 - Train the model (run train_simon.py) 
 - Run the graphical interface ( run simons_gui)
