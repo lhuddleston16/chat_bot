@@ -1,7 +1,7 @@
 # Creating Simon's GUI with tkinter
 import tkinter
 from tkinter import *
-from simon_says import *
+from predict import *
 
 
 def send():

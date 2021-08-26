@@ -1,18 +1,18 @@
 # imports
-from simon_says import scrub_sentence
+from utility_methods import scrub_sentence
 import nltk
-nltk.download("punkt")
-nltk.download("wordnet")
 from nltk.stem import WordNetLemmatizer
-
-lemmatizer = WordNetLemmatizer()
 import json
 import pickle
 import numpy as np
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
-from tensorflow.keras.optimizers import SGD
+from keras.optimizers import SGD
 import random
+
+nltk.download("punkt")
+nltk.download("wordnet")
+lemmatizer = WordNetLemmatizer()
 
 # load data and initialize lists
 word_list = []
