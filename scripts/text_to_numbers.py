@@ -1,6 +1,6 @@
 import nltk
+import numpy as np
 from nltk.corpus import stopwords
-
 from nltk.stem import WordNetLemmatizer
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
@@ -19,3 +19,18 @@ def scrub_sentence(sentence):
     sentence_words = [w for w in sentence_words if not w.lower() in stop_words]
     sentence_words = sorted(list(set(sentence_words)))
     return sentence_words
+
+def bag_of_words(sentence, word_list, show_details=True):
+    """Using total words (word_list) create a bag of words"""
+    # tokenize the pattern
+    sentence_words = scrub_sentence(sentence)
+    # bag of words
+    bag = [0] * len(word_list)
+    for s in sentence_words:
+        for i, w in enumerate(word_list):
+            if w == s:
+                # assign 1 if current word is in the vocabulary position
+                bag[i] = 1
+                if show_details:
+                    print("found in bag: %s" % w)
+    return np.array(bag)

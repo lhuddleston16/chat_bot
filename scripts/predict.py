@@ -4,29 +4,13 @@ import numpy as np
 import json
 import random
 from keras.models import load_model
-from utility_methods import scrub_sentence
+from text_to_numbers import bag_of_words
 
 #Items to load
 model = load_model("artifacts/model.h5")
 intents = json.loads(open("data/intents.json").read())
 word_list = pickle.load(open("artifacts/word_list.pkl", "rb"))
 reponse_class = pickle.load(open("artifacts/reponse_class.pkl", "rb"))
-
-
-def bag_of_words(sentence, word_list, show_details=True):
-    """Using total words (word_list) create a bag of words"""
-    # tokenize the pattern
-    sentence_words = scrub_sentence(sentence)
-    # bag of words
-    bag = [0] * len(word_list)
-    for s in sentence_words:
-        for i, w in enumerate(word_list):
-            if w == s:
-                # assign 1 if current word is in the vocabulary position
-                bag[i] = 1
-                if show_details:
-                    print("found in bag: %s" % w)
-    return np.array(bag)
 
 
 def predict_reponse_class(sentence, model):

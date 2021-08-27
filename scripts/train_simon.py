@@ -1,5 +1,5 @@
 # imports
-from utility_methods import scrub_sentence
+from text_to_numbers import scrub_sentence
 import nltk
 from nltk.stem import WordNetLemmatizer
 import json
