@@ -10,8 +10,7 @@ from keras.layers import Dense, Activation, Dropout
 from keras.optimizers import SGD
 import random
 
-nltk.download("punkt")
-nltk.download("wordnet")
+
 lemmatizer = WordNetLemmatizer()
 
 # load data and initialize lists
