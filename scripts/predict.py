@@ -4,7 +4,7 @@ import numpy as np
 import json
 import random
 from keras.models import load_model
-from text_to_numbers import bag_of_words
+from scripts.text_to_numbers import bag_of_words
 
 #Items to load
 model = load_model("artifacts/model.h5")
@@ -40,7 +40,7 @@ def get_response(ints, intents_json):
     return result
 
 
-def simons_response(text):
+def simons_response(text,model):
     """Returns an automated response given a sentence"""
     ints = predict_reponse_class(text, model)
     res = get_response(ints, intents)
