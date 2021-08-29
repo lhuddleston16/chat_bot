@@ -29,4 +29,3 @@ def chatbot_response():
 if __name__ == "__main__":
     app.run()
 
-#print(simons_response("Hello my name is levi"))
