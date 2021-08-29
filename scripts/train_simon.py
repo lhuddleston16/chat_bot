@@ -15,7 +15,7 @@ lemmatizer = WordNetLemmatizer()
 
 # load data and initialize lists
 word_list = []
-reponse_class = []
+response_class = []
 documents = []
 data_file = open("data/intents.json").read()
 intents = json.loads(data_file)
@@ -29,25 +29,25 @@ for intent in intents["intents"]:
         word_list.extend(w)
         # add documents in the corpus
         documents.append((w, intent["tag"]))
-        # add to our reponse_class list
-        if intent["tag"] not in reponse_class:
-            reponse_class.append(intent["tag"])
+        # add to our response_class list
+        if intent["tag"] not in response_class:
+            response_class.append(intent["tag"])
 
 
-# sort reponse_class
-reponse_class = sorted(list(set(reponse_class)))
+# sort response_class
+response_class = sorted(list(set(response_class)))
 # documents = combination between patterns and intents
 print(len(documents), "documents")
-# reponse_class = intents
-print(len(reponse_class), "reponse_class", reponse_class)
+# response_class = intents
+print(len(response_class), "response_class", response_class)
 # word_list = all words, vocabulary
 print(len(word_list), "unique lemmatized word", word_list)
 pickle.dump(word_list, open("artifacts/word_list.pkl", "wb"))
-pickle.dump(reponse_class, open("artifacts/reponse_class.pkl", "wb"))
+pickle.dump(response_class, open("artifacts/response_class.pkl", "wb"))
 
 # Create bag of words data to use for training!
 training = []
-output_empty = [0] * len(reponse_class)
+output_empty = [0] * len(response_class)
 
 for doc in documents:
     bag = []
@@ -58,9 +58,9 @@ for doc in documents:
     # 1 if there is a match
     for w in word_list:
         bag.append(1) if w in pattern_words else bag.append(0)
-    # Label the correct reponse_class with a 1
+    # Label the correct response_class with a 1
     output_row = list(output_empty)
-    output_row[reponse_class.index(doc[1])] = 1
+    output_row[response_class.index(doc[1])] = 1
     training.append([bag, output_row])
 # Randomize
 random.shuffle(training)
