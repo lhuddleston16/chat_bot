@@ -1,19 +1,12 @@
-#Imports
+# Imports
 import pickle
 import numpy as np
 import json
 import random
-from keras.models import load_model
-from text_to_numbers import bag_of_words
-
-#Items to load
-model = load_model("artifacts/model.h5")
-intents = json.loads(open("data/intents.json").read())
-word_list = pickle.load(open("artifacts/word_list.pkl", "rb"))
-reponse_class = pickle.load(open("artifacts/reponse_class.pkl", "rb"))
+from scripts.text_to_numbers import bag_of_words
 
 
-def predict_reponse_class(sentence, model):
+def predict_response_class(sentence, model, word_list, response_class):
     """Input sentence and predict response class"""
     # Make prediction
     p = bag_of_words(sentence, word_list, show_details=False)
@@ -25,7 +18,7 @@ def predict_reponse_class(sentence, model):
     results.sort(key=lambda x: x[1], reverse=True)
     return_list = []
     for r in results:
-        return_list.append({"intent": reponse_class[r[0]], "probability": str(r[1])})
+        return_list.append({"intent": response_class[r[0]], "probability": str(r[1])})
     return return_list
 
 
@@ -40,8 +33,14 @@ def get_response(ints, intents_json):
     return result
 
 
-def simons_response(text):
+def simons_response(
+    sentence,
+    model,
+    intents=json.loads(open("data/intents.json").read()),
+    word_list=pickle.load(open("artifacts/word_list.pkl", "rb")),
+    response_class=pickle.load(open("artifacts/response_class.pkl", "rb")),
+):
     """Returns an automated response given a sentence"""
-    ints = predict_reponse_class(text, model)
+    ints = predict_response_class(sentence, model, word_list, response_class)
     res = get_response(ints, intents)
     return res
