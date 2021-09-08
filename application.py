@@ -20,7 +20,6 @@ def home():
 def chatbot_response():
     msg = request.form["msg"]
     model = load_model("artifacts/model.h5")
-    model = "Hello Cam!"
     res = simons_response(msg,model)
     return res
 
