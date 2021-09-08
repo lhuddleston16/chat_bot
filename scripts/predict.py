@@ -41,7 +41,6 @@ def simons_response(
     response_class=pickle.load(open("artifacts/response_class.pkl", "rb")),
 ):
     """Returns an automated response given a sentence"""
-    #ints = predict_response_class(sentence, model, word_list, response_class)
-    #res = get_response(ints, intents)
-    #return res
-    return model
+    ints = predict_response_class(sentence, model, word_list, response_class)
+    res = get_response(ints, intents)
+    return res
