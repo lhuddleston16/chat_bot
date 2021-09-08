@@ -2,8 +2,7 @@
 from scripts.predict import simons_response
 from flask import Flask, render_template, request
 from tensorflow.keras.models import load_model
-import pickle 
-import json
+
 
 #items to load
 model = load_model("artifacts/model.h5")
