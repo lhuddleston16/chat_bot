@@ -9,14 +9,14 @@ import json
 model = load_model("artifacts/model.h5")
 
 
-appplication = Flask(__name__)
+application = Flask(__name__)
 
-@appplication.route("/")
+@application.route("/")
 def home():
     return render_template("index.html")
 
 
-@appplication.route("/get", methods=["POST"])
+@application.route("/get", methods=["POST"])
 def chatbot_response():
     msg = request.form["msg"]
     model = load_model("artifacts/model.h5")
@@ -25,5 +25,5 @@ def chatbot_response():
 
 
 if __name__ == "__main__":
-    appplication.run()
+    application.run()
 
