@@ -24,6 +24,11 @@
          "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
          "context": [""]
         },
+        {"tag": "office",
+                "patterns": ["I need to buy paper", "Get me Jim Halpert on the phone", "Is Michael Scott the worlds best boss", "Is Dunder Mifflin Infinity ready?"],
+                "responses": ["Sometimes Ill start a sentence and I dont even know where its going. I just hope I find it along the way.", "I talk a lot, so I’ve learned to tune myself out.", "Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.", "Im not superstitious, but I am a little stitious.","Today, smoking is going to save lives","I am running away from my responsibilities. And it feels good.","And I knew exactly what to do. But in a much more real sense, I had no idea what to do."],
+                "context": [""]
+               },
         {"tag": "adverse_drug",
          "patterns": ["How to check adverse drug reaction?", "Open adverse drugs module", "Give me a list of drugs causing adverse behavior", "List all drugs suitable for patient with adverse reaction", "Which drugs dont have adverse reaction?" ],
          "responses": ["Navigating to Adverse drug reaction module"],
