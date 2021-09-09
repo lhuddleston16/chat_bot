@@ -1,7 +1,7 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day"],
-         "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?"],
+         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day", "What's up Simon","Simon"],
+         "responses": ["Hello! How can I be of service", "Hey! Glad you are up for chatting, what do you need?", "Hi there, how can I help?"],
          "context": [""]
         },
         {"tag": "goodbye",
@@ -15,28 +15,23 @@
                 "context": [""]
                },
         {"tag": "thanks",
-         "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+         "patterns": ["Thanks", "Thank you", "That is perfect", "Awesome, thanks", "Lovely"],
          "responses": ["Happy to help!", "Any time!", "My pleasure"],
          "context": [""]
         },
         {"tag": "noanswer",
-         "patterns": [],
-         "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+         "patterns": [""," ", "   "],
+         "responses": ["Sorry, can't understand you. Ask me what I can do.", "Please give me more info", "Not sure I understand", "Yo you broke me. I'm not that good alright."],
          "context": [""]
         },
         {"tag": "options",
-         "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
+         "patterns": ["How you could help me?", "What can you do?", "What help you provide?", "How you can be helpful?", "What support is offered", "Help"],
          "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
          "context": [""]
         },
         {"tag": "adverse_drug",
-         "patterns": ["How to check Adverse drug reaction?", "Open adverse drugs module", "Give me a list of drugs causing adverse behavior", "List all drugs suitable for patient with adverse reaction", "Which drugs dont have adverse reaction?" ],
+         "patterns": ["How to check adverse drug reaction?", "Open adverse drugs module", "Give me a list of drugs causing adverse behavior", "List all drugs suitable for patient with adverse reaction", "Which drugs dont have adverse reaction?" ],
          "responses": ["Navigating to Adverse drug reaction module"],
-         "context": [""]
-        },
-        {"tag": "blood_pressure",
-         "patterns": ["Open blood pressure module", "Task related to blood pressure", "Blood pressure data entry", "I want to log blood pressure results", "Blood pressure data management" ],
-         "responses": ["Navigating to Blood Pressure module"],
          "context": [""]
         },
         {"tag": "blood_pressure_search",
@@ -45,7 +40,7 @@
          "context": ["search_blood_pressure_by_patient_id"]
         },
         {"tag": "search_blood_pressure_by_patient_id",
-         "patterns": [],
+         "patterns": ["101","102","103","104","105"],
          "responses": ["Loading Blood pressure result for Patient"],
          "context": [""]
         },
@@ -55,7 +50,7 @@
          "context": ["search_pharmacy_by_name"]
         },
         {"tag": "search_pharmacy_by_name",
-         "patterns": [],
+         "patterns": ["Fred Meyer","Safeway","Walgreens"],
          "responses": ["Loading pharmacy details"],
          "context": [""]
         },
@@ -65,7 +60,7 @@
          "context": ["search_hospital_by_params"]
         },
         {"tag": "search_hospital_by_params",
-         "patterns": [],
+         "patterns": ["Adventist Medical Center","Portland Shriners Hospital","OHSU"],
          "responses": ["Please provide hospital type"],
          "context": ["search_hospital_by_type"]
         },

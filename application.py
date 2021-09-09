@@ -12,13 +12,14 @@ application = Flask(__name__)
 
 @application.route("/")
 def home():
+    '''Renders html from index.html'''
     return render_template("index.html")
 
 
 @application.route("/get", methods=["POST"])
-def chatbot_response():
+def chatbot_response(model = model):
+    '''Receives msg and returns simons response'''
     msg = request.form["msg"]
-    model = load_model("artifacts/model.h5")
     res = simons_response(msg,model)
     return res
     

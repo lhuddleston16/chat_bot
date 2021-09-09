@@ -1,10 +1,13 @@
 # Creating Simon's GUI with tkinter
 import tkinter
 from tkinter import *
-from predict import *
+from scripts.predict import simons_response
+from tensorflow.keras.models import load_model
 
+model = load_model("artifacts/model.h5")
 
 def send():
+    '''If the message is not blank it grabs a response from the model'''
     msg = EntryBox.get("1.0", "end-1c").strip()
     EntryBox.delete("0.0", END)
 
@@ -13,7 +16,7 @@ def send():
         ChatLog.insert(END, "You: " + msg + "\n\n")
         ChatLog.config(foreground="#442265", font=("Helvetica", 12))
 
-        res = simons_response(msg)
+        res = simons_response(msg,model)
         ChatLog.insert(END, "Simon: " + res + "\n\n")
 
         ChatLog.config(state=DISABLED)

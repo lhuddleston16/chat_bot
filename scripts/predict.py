@@ -9,7 +9,7 @@ from scripts.text_to_numbers import bag_of_words
 def predict_response_class(sentence, model, word_list, response_class):
     """Input sentence and predict response class"""
     # Make prediction
-    p = bag_of_words(sentence, word_list, show_details=False)
+    p = bag_of_words(sentence, word_list, show_details=True)
     res = model.predict(np.array([p]))[0]
     # Filter predictions below threshold of .25
     ERROR_THRESHOLD = 0.25
