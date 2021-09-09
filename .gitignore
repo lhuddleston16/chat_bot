@@ -103,6 +103,7 @@ celerybeat.pid
 
 #Visual Studios
 .vs
+.vscode
 
 # Environments
 .env
