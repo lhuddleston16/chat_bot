@@ -13,7 +13,7 @@ import random
 
 lemmatizer = WordNetLemmatizer()
 
-# load data and initialize lists
+# load data and initialize list
 word_list = []
 response_class = []
 documents = []
