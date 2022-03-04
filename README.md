@@ -47,3 +47,6 @@ Some might expect that the model is generating the text that is used as a respon
 
 # Citation
 Model was developed with data and inspiration from https://data-flair.training/blogs
+
+# Deploy to Elastic Beanstalk with this tutorial
+https://www.youtube.com/watch?v=4tDjVFbi31o&ab_channel=CalebCurry
