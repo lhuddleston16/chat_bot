@@ -30,12 +30,14 @@ Some might expect that the model is generating the text that is used as a respon
 
 # Running the App
 - Clone repo
-- Set up python virtual environment nativly
+- Set up python virtual environment natively
   - python -m venv < location-of-project >\simon_says\venv
     - This creates a virtual environment and a folder in your project
   - Activate virtual environment
+  
     Windows
     - < location-of-project >\simon_says\venv\Scripts\activate
+    
     MAC
     - source < location-of-project >/venv/bin/activate 
 - Set up python virtual environment with conda
